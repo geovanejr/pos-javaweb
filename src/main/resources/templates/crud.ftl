@@ -23,6 +23,7 @@
         <div class="form-group">
             <label for="nome">Cidade: </label>
             <input
+                    required
                     value="${(cidadeAtual.nome)!}"
                     name="nome"
                     type="text"
@@ -32,6 +33,8 @@
         <div class="form-group">
             <label for="estado">Estado: </label>
             <input
+                    required
+                    maxlength="2"
                     value="${(cidadeAtual.estado)!}"
                     name="estado"
                     type="text"
