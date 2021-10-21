@@ -31,17 +31,23 @@ public class CidadeController {
     }
 
     @PostMapping("/criar")
-    public String criar(@Valid Cidade cidade, BindingResult validacao) {
+    public String criar(@Valid Cidade cidade, BindingResult validacao, Model memoria) {
 
         if (validacao.hasErrors()) {
 
             validacao
                     .getFieldErrors()
-                    .forEach(error -> {
-                        System.out.println(
-                                String.format("O atributo %s emitiu as seguintes mensagens: %s",
-                                        error.getField(), error.getDefaultMessage()));
-                    });
+                    .forEach(error ->
+                            memoria.addAttribute(
+                                    error.getField(),
+                                    error.getDefaultMessage()
+                            )
+                    );
+
+            memoria.addAttribute("nomeInformado", cidade.getNome());
+            memoria.addAttribute("estadoInformado", cidade.getEstado());
+            memoria.addAttribute("listaCidades", cidades);
+            return ("/crud");
         } else {
 
             cidades.add(cidade);
@@ -83,14 +89,16 @@ public class CidadeController {
     @PostMapping("/alterar")
     public String alterar(@RequestParam String nomeAtual,
                           @RequestParam String estadoAtual,
-                          Cidade cidade) {
+                          Cidade cidade,
+                          BindingResult validacao,
+                          Model memoria) {
 
         cidades.removeIf(
                 cidadeAtual ->
                         cidadeAtual.getNome().equals(nomeAtual) &&
                         cidadeAtual.getEstado().equals(estadoAtual));
 
-        criar(cidade, null);
+        criar(cidade, validacao, memoria);
 
         return "redirect:/";
     }
