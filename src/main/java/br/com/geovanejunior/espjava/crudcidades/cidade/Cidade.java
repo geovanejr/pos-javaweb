@@ -1,4 +1,4 @@
-package br.com.geovanejunior.espjava.crudcidades.visao;
+package br.com.geovanejunior.espjava.crudcidades.cidade;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

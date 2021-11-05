@@ -1,4 +1,4 @@
-package br.com.geovanejunior.espjava.crudcidades.visao;
+package br.com.geovanejunior.espjava.crudcidades.cidade;
 
 import br.com.geovanejunior.espjava.crudcidades.entity.CidadeEntidade;
 import br.com.geovanejunior.espjava.crudcidades.repository.CidadeRepository;
