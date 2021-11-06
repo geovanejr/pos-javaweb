@@ -9,7 +9,10 @@ public class CidadeEntidade {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(length = 60)
     private String nome;
+    @Column(length = 02)
     private String estado;
 
     public CidadeEntidade() {

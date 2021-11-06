@@ -71,6 +71,12 @@
 			<artifactId>hibernate-core</artifactId>
 			<version>5.4.32.Final</version>
 		</dependency>
+
+		<!-- Dependência Spring Autenticação-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
