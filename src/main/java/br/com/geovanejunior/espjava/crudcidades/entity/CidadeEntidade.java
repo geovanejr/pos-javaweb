@@ -1,10 +1,11 @@
 package br.com.geovanejunior.espjava.crudcidades.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "cidade")
-public class CidadeEntidade {
+public class CidadeEntidade implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
